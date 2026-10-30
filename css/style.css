@@ -1,0 +1,281 @@
+.terrain-continair {
+    /* background-image: url(img/terrain.png); */
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    gap: 10px;
+
+    width: 50vw;
+    height: 70vh;
+    padding: 15px;
+
+    background-color: #080f20;
+    border: 1px solid #334155;
+    border-radius: 20px;
+    margin: auto;
+    grid-template-areas:
+        ". . . . . . . . . . . ."
+        ". . . DG DG . . MG MG . . ."
+        ". . . . . . . . . . BU1 BU1"
+        "GB GB DC1 DC1 . . MC1 MC1 . . . ."
+        "GB GB . . . . . . . . . ."
+        "GB GB DC2 DC2 . . MC2 MC2 . . . ."
+        ". . . . . . . . . . BU2 BU2"
+        ". . . DD DD . . MD MD . . ."
+        ". . . . . . . . . . . .";
+}
+
+.tiran {
+    background-color: #131e30;
+    border: 1px solid #263449;
+    border-radius: 10px;
+   
+}
+
+
+
+.terrain-continair > div:nth-child(16) {
+    grid-area: DG;
+    text-align: center;
+    background-color: rgb(3, 3, 84) !important;
+    border: 3px dashed rgb(68, 130, 245) !important;
+    color: rgb(68, 130, 245);
+}
+
+.terrain-continair > div:nth-child(39) {
+    grid-area: DC1;
+     text-align: center;
+    background-color: rgb(3, 3, 84) !important;
+    border: 3px dashed rgb(68, 130, 245) !important;
+    color: rgb(68, 130, 245);
+}
+.terrain-continair > div:nth-child(63) {
+    grid-area: DC2;
+     text-align: center;
+    background-color: rgb(3, 3, 84) !important;
+    border: 3px dashed rgb(68, 130, 245) !important;
+    color: rgb(68, 130, 245);
+}
+.terrain-continair > div:nth-child(88) {
+    grid-area: DD;
+     text-align: center;
+    background-color: rgb(3, 3, 84) !important;
+    border: 3px dashed rgb(68, 130, 245) !important;
+    color: rgb(68, 130, 245);
+}
+.terrain-continair > div:nth-child(20) {
+    grid-area: MG;
+     text-align: center;
+    background-color: rgb(1, 45, 1) !important;
+    border: 3px dashed rgb(110, 247, 117) !important;
+    color: rgb(110, 247, 117);
+}
+.terrain-continair > div:nth-child(43) {
+    grid-area: MC1;
+     text-align: center;
+    background-color: rgb(1, 45, 1) !important;
+    border: 3px dashed rgb(110, 247, 117) !important;
+    color: rgb(110, 247, 117);
+}
+
+.terrain-continair > div:nth-child(67) {
+    grid-area: MC2;
+     text-align: center;
+    background-color: rgb(1, 45, 1) !important;
+    border: 3px dashed rgb(110, 247, 117) !important;
+    color: rgb(110, 247, 117);
+}
+.terrain-continair > div:nth-child(92) {
+    grid-area: MD;
+     text-align: center;
+    background-color: rgb(1, 45, 1) !important;
+    border: 3px dashed rgb(110, 247, 117) !important;
+    color: rgb(110, 247, 117);
+}
+
+.terrain-continair > div:nth-child(35) {
+    grid-area: BU1;
+     text-align: center;
+    background-color: rgb(63, 0, 0) !important;
+    border: 3px dashed rgb(255, 134, 134) !important;
+    color: rgb(255, 134, 134);
+}
+.terrain-continair > div:nth-child(83) {
+    grid-area: BU2;
+     text-align: center;
+    background-color: rgb(63, 0, 0) !important;
+    border: 3px dashed rgb(255, 134, 134) !important;
+    color: rgb(255, 134, 134);
+}
+
+.terrain-continair > div:nth-child(37) {
+    grid-area: GB;
+     text-align: center;
+    background-color: rgb(62, 62, 1) !important;
+    border: 3px dashed rgb(248, 248, 145) !important;
+}
+#popup-joueur {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0.8);
+    z-index: 1000;
+}
+
+#popup-joueur.formpop {
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.formj h1{
+    border-radius: 50%;
+    border-color: rgb(213, 138, 52);
+
+
+}
+.formj{
+    display: flex;
+    justify-content: space-between;
+}
+.invalidnbr{
+    color: red;
+}
+.invalidnom{
+color: red;
+}
+.tiran.occupee {
+    opacity: 1;
+    color: white;
+    border: 2px solid #22c55e;
+}
+/* Style de base du menu sur mobile */
+#mobile-nav {
+  display: none; /* Caché par défaut */
+}
+
+/* Quand le menu est actif */
+#mobile-nav.active {
+  display: block;
+}
+
+/* Style des barres du bouton burger */
+#burger-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#burger-btn .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+}
+
+/* Tablette   */
+@media (max-width: 1024px) {
+    main {
+        gap: 12px;
+        padding: 12px;
+    }
+
+    main > section:first-child {
+        width: 32%;
+        padding: 16px;
+    }
+
+    .terrain-continair {
+        gap: 5px;
+        padding: 8px;
+        height: 65vh;
+        min-height: 400px;
+    }
+
+    .tiran {
+        font-size: 10px;
+    }
+}
+
+/*  Téléphone*/
+ @media (max-width: 700px) {
+    main {
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    main > section:first-child {
+        width: 100%;
+        height: auto;
+        padding: 16px;
+        box-sizing: border-box;
+    }
+
+    .terrain-continair {
+        width: 100%;
+        flex: none;
+        height: 55vw;
+        min-height: 280px;
+        max-height: 420px;
+        gap: 3px;
+        padding: 6px;
+    }
+
+    .tiran {
+        font-size: clamp(7px, 2vw, 11px);
+        border-radius: 4px;
+    }
+
+    header {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    header ul {
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 12px;
+    }
+
+    header > div {
+        flex-wrap: wrap;
+    }
+
+     #popup-joueur {
+        width: 90% !important;
+        max-width: 320px;
+        padding: 14px !important;
+        box-sizing: border-box;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    #popup-joueur h2 {
+        font-size: 16px;
+    }
+
+    #popup-joueur input,
+    #popup-joueur select {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+
+    #popup-joueur .mb-6 {
+        margin-bottom: 14px;
+    }
+
+    #popup-joueur .flex.gap-3 {
+        gap: 8px;
+    }
+
+    #popup-joueur button {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
