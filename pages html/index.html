@@ -13,10 +13,10 @@
 </head>
 
 <body>
-    <header class="flex  justify-between bg-slate-900 p-3 font">
+    <header class="flex  justify-between bg-slate-900 p-3 ">
         <div>
-            <h1 class="  flex text-sky-50">
-                <img class="size-6 font-bold" src="/img/football co.png" alt=""> TACHKILA
+            <h1 class="  flex text-sky-50 text-2xl  font-bold">
+                <img class="size-10  " src="/img/football co.png" alt=""> TACHKILA
             </h1>
         </div>
         <nav>
@@ -50,28 +50,45 @@
             <div class="flex  justify-between  ">
                 <h1 class="font-bold text-white text-3xl p-4">Effectif</h1>
                 <button id="btn" class="bg-green-600 text-white font-bold  mt-4 mb-6 p-4 rounded-xl p-3"> + Ajouter un
-                    joueur</button>
-            </div>
-            <div class="flex gap-6 text-white border-slate-700 border bg-slate-800 border-xl rounded-xl p-4 " ">
+                    joueur</button> </div>
+                <p class="bg-slate-900 border border-slate-700 rounded-lg px-3 py-1 text-sm nbrjoueur"> 0 joueur(s)
+                </p>
+                <div class="flex gap-6 text-white border-slate-700 border bg-slate-800 border-xl rounded-xl p-4 " ">
                 <input type=" search" id="searchInput" placeholder="Rechercher une joueur par nom ..."
-                class=" flex w-full rounded-lg border border-slate-700 bg-slate-900 p-3 text-white outline-none focus:border-red-500" />
+                    class=" flex w-full rounded-lg border border-slate-700 bg-slate-900 p-3 text-white outline-none focus:border-green-500" />
 
-            <div class="  text-white w-64   flex gap-6  border-slate-900 border bg-slate-900 border-xl rounded-xl p-4 ">
-                <a href=""> toute</a>
-                <a href="" bg-slate-800> GB</a>
-                <a href="">DEF</a>
-                <a href="">MIL</a>
-                <a href="">ATT</a>
-            </div>
+                <ul
+                    class="  text-white w-64   flex gap-6  border-slate-900 border bg-slate-900 border-xl rounded-xl p-4 listefilter">
+                    <li  data-poste="tout"> toute</li>
+                    <li data-poste="GB"> GB</li>
+                    <li data-poste="DEF">DEF</li>
+                    <li data-poste="MIL">MIL</li>
+                    <li data-poste="ATT">ATT</li>
+                   </ul>
+           
             </div>
         </section>
-        <section class="bg-slate-800">
+        <section class="bg-slate-800 h-[100%]">
             <div class="formj flex flex-col mt-4 ">
                 <p class="text-sm text-slate-400 font-normal mb-4 flex bg-slate-900 p-4
-                  rounded-xl border border-slate-700 gap-3 haid"> Aucun joueur pour le moment</p>
-            </div>
-            <div id="popup-joueur"
-                   class="w-[50%] rounded-2xl border border-slate-700 bg-slate-900 p-6 shadow-2xl">
+                  rounded-xl border border-slate-700 gap-3 haid"> 
+                  Aucun joueur pour le moment</p>
+                   </div>
+                  <!-- pagination -->
+                <div id="pagination" class="flex justify-end">
+                    <button id="prec"
+                        class="border border-1 border-white rounded-full p-2 disabled:opacity-40 disabled:cursor-not-allowed">
+                        &lt;
+                    </button>
+                    <p id="info-page" class="m-2">Page 1</p>
+                    <button id="suiv"
+                        class="border border-1 border-white rounded-full p-2 disabled:opacity-40 disabled:cursor-not-allowed">
+                        &gt;
+                    </button>
+                </div>
+                
+           
+            <div id="popup-joueur" class="w-[50%] rounded-2xl border border-slate-700 bg-slate-900 p-6 shadow-2xl">
                 <div class="mb-6 flex items-center justify-between">
                     <h2 class="text-xl font-bold text-white">
                         Ajouter un joueur
@@ -93,40 +110,41 @@
                         <p class="text-red mesageinvalidN"></p>
                     </div>
                     <div class="  grid grid-cols-2 grid-rows-2 gap-4">
-                        
-                            <label class="mb-2 block text-sm text-slate-300">
-                                Numéro du maillot
-                                <input type="number" placeholder="Ex. 10" required
+
+                        <label class="mb-2 block text-sm text-slate-300">
+                            Numéro du maillot
+                            <input type="number" placeholder="Ex. 10" required
                                 class="w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-white outline-none focus:border-green-500 num">
                             <p class=" text-red invalidnumbr "></p>
-                            </label>
+                        </label>
 
-                            
-                        
-                        
-                            <label class="mb-2 block text-sm text-slate-300">
-                                Poste
-                                <select class="w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-white post">
+
+
+
+                        <label class="mb-2 block text-sm text-slate-300">
+                            Poste
+                            <select class="w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-white post">
                                 <option value="GB">Gardien</option>
                                 <option value="DEF">Défenseur</option>
                                 <option value="MIL">Milieu</option>
                                 <option value="ATT">Attaquant</option>
                             </select>
-                            </label>
-                            <label class="mb-2 block text-sm text-slate-300">
-                                age :
-                                <input type="number" required
+                        </label>
+                        <label class="mb-2 block text-sm text-slate-300">
+                            age :
+                            <input type="number" required
                                 class="w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-white outline-none focus:border-green-500 age">
                             <p class=" text-red invalidage "></p>
-                            </label>  
+                        </label>
 
-                            <label class="mb-2 block text-sm text-slate-300">
-                                statut
-                                <select class="w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-white statut">
-                                <option value="fr">en forme</option>
-                                <option value="blesse">blessé</option>
+                        <label class="mb-2 block text-sm text-slate-300">
+                            statut
+                            <select
+                                class="w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-white statut">
+                                <option >en forme</option>
+                                <option >blessé</option>
                             </select>
-                            </label>
+                        </label>
 
                     </div>
                     <div class="flex gap-3">

@@ -198,6 +198,12 @@ color: red;
     .tiran {
         font-size: 10px;
     }
+    .formj{
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    grid-template-rows:repeat(2,1fr) ;
+    gap: 3PX;
+}
 }
 
 /*  Téléphone*/
@@ -278,4 +284,11 @@ color: red;
         padding: 10px;
         font-size: 13px;
     }
+
+}
+.formj{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap:4px;
 }
