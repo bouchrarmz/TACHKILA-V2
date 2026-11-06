@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+<script type="module" src="/pages js/page-composition.js"></script>
 </head>
 
 <body>
@@ -159,65 +159,6 @@
             <div class="tiran" id="MD">MD</div>
             <div class="tiran"></div>
             
-            <div id="popup-joueur"
-                class=" invisible w-full rounded-2xl border border-slate-700 bg-slate-900 p-6 shadow-2xl absolute ">
-
-                <div class="mb-6 flex items-center justify-between">
-                    <h2 class="text-xl font-bold text-white">
-                        Ajouter un joueur
-                    </h2>
-
-                    <button type="button" class="text-2xl text-slate-400 hover:text-white  btn-annuler">
-                        &times;
-                    </button>
-                </div>
-
-                <form id="form">
-                    <div class="mb-4 ">
-                        <label class="mb-2 block text-sm text-slate-300">
-                            Nom complet
-                        </label>
-
-                        <input type="text" placeholder="Ex.bouchra ramzi" required
-                            class="w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-white outline-none focus:border-green-500 nom ">
-                        <p class="text-red mesageinvalidN"></p>
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="mb-2 block text-sm text-slate-300">
-                            Numéro du maillot
-                        </label>
-
-                        <input type="number" placeholder="Ex. 10" required
-                            class="w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-white outline-none focus:border-green-500 num">
-                        <p class=" text-red invalidnumbr "></p>
-                    </div>
-
-                    <div class="mb-6">
-                        <label class="mb-2 block text-sm text-slate-300">
-                            Poste
-                        </label>
-
-                        <select class="w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-white post">
-                            <option value="GB">Gardien</option>
-                            <option value="DEF">Défenseur</option>
-                            <option value="MIL">Milieu</option>
-                            <option value="ATT">Attaquant</option>
-                        </select>
-                    </div>
-
-                    <div class="flex gap-3">
-                        <button type="button"
-                            class="flex-1 rounded-lg bg-slate-700 p-3 font-semibold text-white hover:bg-slate-600 ">
-                            Annuler
-                        </button>
-
-                        <button id="ajouterj"
-                            class="flex-1 rounded-lg bg-green-600 p-3 font-semibold text-white hover:bg-green-500 ">
-                            Ajouter
-                        </button>
-                    </div>
-                </form>
 
             </div>
          
@@ -236,6 +177,5 @@
             </div>
         </section>
     </main>
-    <script type="module" src="/pages js/page-composition.js"></script>
     </body>
     </html>

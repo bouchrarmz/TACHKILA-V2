@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+    <script type="module" src="/pages js/page-effectif.js"></script>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
         </div>
         <nav>
             <ul class="flex gap-6 text-white border-slate-700 border bg-slate-800 border-xl rounded-xl p-4 ">
-                <li><a href=" index.html">Effectif</a></li>
+                <li><a href="index.html">Effectif</a></li>
                 <li><a href="composition.html">Composition</a></li>
                 <li><a href="matchs.html">Matchs</a></li>
 
@@ -99,7 +99,7 @@
                     </button>
                 </div>
 
-                <form id="form">
+                <form id="form" class="formM">
                     <div class="mb-4 ">
                         <label class="mb-2 block text-sm text-slate-300">
                             Nom complet
@@ -117,10 +117,6 @@
                                 class="w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-white outline-none focus:border-green-500 num">
                             <p class=" text-red invalidnumbr "></p>
                         </label>
-
-
-
-
                         <label class="mb-2 block text-sm text-slate-300">
                             Poste
                             <select class="w-full rounded-lg border border-slate-700 bg-slate-800 p-3 text-white post">
@@ -148,7 +144,7 @@
 
                     </div>
                     <div class="flex gap-3">
-                        <button type="button"
+                        <button type="reset"
                             class="flex-1 rounded-lg bg-slate-700 p-3 font-semibold text-white hover:bg-slate-600 ">
                             Annuler
                         </button>
@@ -163,7 +159,7 @@
             </div>
 
     </main>
-    <script type="module" src="/pages js/page-effectif.js"></script>
+  
 
 </body>
 

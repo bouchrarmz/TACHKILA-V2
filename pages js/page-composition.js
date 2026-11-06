@@ -1,11 +1,40 @@
 
-import { listj, sauvegarderJoueurs ,} from "./stockage.js";
-import {
-    creercarte,
-    assignerJoueur,
-    actualiserCompteur
-} from "./joueurs.js";
-export function creercarte(jou) {
+import { listj, sauvegarderJoueurs, } from "./stockage.js";
+// import {
+//     actualiserCompteur
+// } from "./joueurs.js";
+const joueurs = document.querySelector('.joueurs')
+const positions = {
+    GB: { poste: "GB", nom: "Gardien" },
+    DG: { poste: "DEF", nom: "Défenseur gauche" },
+    DC1: { poste: "DEF", nom: "Défenseur central 1" },
+    DC2: { poste: "DEF", nom: "Défenseur central 2" },
+    DD: { poste: "DEF", nom: "Défenseur droit" },
+    MG: { poste: "MIL", nom: "Milieu gauche" },
+    MC1: { poste: "MIL", nom: "Milieu central 1" },
+    MC2: { poste: "MIL", nom: "Milieu central 2" },
+    MD: { poste: "MIL", nom: "Milieu droit" },
+    BU1: { poste: "ATT", nom: "Buteur 1" },
+    BU2: { poste: "ATT", nom: "Buteur 2" }
+};
+export function actualiserCompteur() {
+    const nombrejoueur = document.querySelector(".nbrjoueur");
+    // const hd = document.querySelector(".haid");
+
+    console.log("Page actuelle:", location.pathname);
+    console.log("Compteur:", nombrejoueur);
+    console.log("Nombre joueurs:", listj.length);
+    nombrejoueur.textContent = listj.length + " joueur(s)";
+
+ if (listj.length > 0) {
+    hd.classList.add("hidden");
+     } else {
+        hd.classList.remove("hidden");
+     }
+}
+
+
+export function afficherj(jou) {
     const parent = document.createElement("div");
 
     parent.classList.add(
@@ -48,23 +77,11 @@ export function creercarte(jou) {
 
     const divicon = document.createElement("div");
     divicon.classList.add("flex", "gap-4");
-
-
     // Supprimer
     const sup = document.createElement("i");
     sup.classList.add("fa-solid", "fa-trash", "cursor-pointer");
 
-    sup.addEventListener("click", function() {
-
-        if (jou.position) {
-            const caseTerrain = document.getElementById(jou.position);
-
-            if (caseTerrain) {
-                caseTerrain.innerHTML = caseTerrain.dataset.label || "";
-                caseTerrain.classList.remove("occupee");
-                delete caseTerrain.dataset.joueur;
-            }
-        }
+    sup.addEventListener("click", function () {
 
         const index = listj.indexOf(jou);
 
@@ -77,12 +94,18 @@ export function creercarte(jou) {
         actualiserCompteur();
     });
 
-    
 
-    divicon.append(sup, edit, gb);
+
+    divicon.append(sup);
     ligneJoueur.append(divicon);
     parent.append(ligneJoueur);
-
-
-    return parent;
+    joueurs.append(parent)
 }
+
+function renderplqyer(){
+    listj.forEach(jou=>{
+        afficherj(jou)
+    })
+}
+renderplqyer();
+actualiserCompteur();

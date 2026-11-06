@@ -14,8 +14,7 @@ export const positions = {
     BU1: { poste: "ATT", nom: "Buteur 1" },
     BU2: { poste: "ATT", nom: "Buteur 2" }
 };
- let itemsPerPage = 3;
-let currentPage = 1;
+
 // Assigner un joueur au terrain
 export function assignerJoueur(joueur, positionId) {
 
@@ -81,8 +80,11 @@ export function assignerJoueur(joueur, positionId) {
 // Actualiser le compteur
 export function actualiserCompteur() {
     const nombrejoueur = document.querySelector(".nbrjoueur");
-    const hd = document.querySelector(".haid");
+    // const hd = document.querySelector(".haid");
 
+    console.log("Page actuelle:", location.pathname);
+    console.log("Compteur:", nombrejoueur);
+    console.log("Nombre joueurs:", listj.length);
     nombrejoueur.textContent = listj.length + " joueur(s)";
 
     // if (listj.length > 0) {
@@ -93,47 +95,6 @@ export function actualiserCompteur() {
 }
 
 // Créer le select des positions
-export function creerSelectPosition(joueur) {
-    const select = document.createElement("select");
-
-    select.classList.add(
-        "w-full",
-        "bg-slate-900",
-        "text-white",
-        "p-2",
-        "rounded-lg",
-        "mt-2"
-    );
-
-    const banc = document.createElement("option");
-    banc.value = "";
-    banc.textContent = "Sur le banc";
-    select.append(banc);
-
-    Object.keys(positions).forEach(function(positionId) {
-
-        if (positions[positionId].poste === joueur.poste) {
-            const option = document.createElement("option");
-
-            option.value = positionId;
-            option.textContent = positions[positionId].nom;
-
-            select.append(option);
-        }
-    });
-
-    select.value = joueur.position || "";
-
-    select.addEventListener("change", function() {
-        const anciennePosition = joueur.position || "";
-
-        if (!assignerJoueur(joueur, select.value)) {
-            select.value = anciennePosition;
-        }
-    });
-
-    return select;
-}
 
 // Créer la carte du joueur
 export function creercarte(jou) {
@@ -319,5 +280,42 @@ searchInput.addEventListener('input' , function(e) {
   })
   })
 }
+
+
+ export function afficherParPagination(list,currentPage,itemsPerPage){
+    const start= (currentPage-1)*itemsPerPage
+    const  end =start+itemsPerPage
+    const pageitem=list.slice(start,end)
+    console.log(pageitem);
+    afficherJoueurs(pageitem)
+
+     const btnPrec = document.getElementById("prec");
+const btnSuiv = document.getElementById("suiv");
+btnSuiv.addEventListener('click', function(){
+    console.log('hoo')
+    if(currentPage < Math.ceil(listj.length / itemsPerPage)){
+        currentPage++;
+    afficherParPagination(listj,currentPage,itemsPerPage)
+
+    }
+
+})
+btnPrec.addEventListener('click', function(){
+     if(currentPage > 1){
+        currentPage--;
+        afficherParPagination(listj,currentPage,itemsPerPage);
+    }
+
+
+})
+
+    }
+    
+    
+
+ 
+
+ 
+
 
 

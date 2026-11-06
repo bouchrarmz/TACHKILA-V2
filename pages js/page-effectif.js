@@ -12,17 +12,17 @@ import {
     actualiserCompteur,
     search,
     catigorijoueur,
+    afficherParPagination
 } from "./joueurs.js";
 import {
     ouvrirModal,
     fermerModal,
-     afficherMsgError
 } from "./interface.js";
 
-const ajoute = document.querySelector("#btn");
+
 const modal = document.querySelector("#popup-joueur");
-const annuler = document.querySelector(".btn-annuler");
-const form = document.querySelector("#form");
+const form = document.querySelector(".formM");
+// console.log(form)
 const statut= document.querySelector('.statut')
 const nom = document.querySelector(".nom");
 const num = document.querySelector(".num");
@@ -35,18 +35,9 @@ const invalidage = document.querySelector(".invalidage");
 let indexmodification = -1;
 let cartemodification = null;
 
-ajoute.addEventListener("click", () => {
-    ouvrirModal(modal);
-});
+ouvrirModal() 
 
-annuler.addEventListener("click", () => {
-    fermerModal(modal);
-    form.reset();
-
-    indexmodification = -1;
-    cartemodification = null;
-});
-
+fermerModal()
 
 // Récupérer les informations de modification
 document.addEventListener("modifierJoueur", (event) => {
@@ -54,13 +45,12 @@ document.addEventListener("modifierJoueur", (event) => {
     cartemodification = event.detail.carte;
 });
 
-// Formulaire
+// validation de formilair 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     let valid = true;
-
-    // Vérifier le numéro
+    
     if (!regexnumbrejoueur.test(num.value.trim())) {
         invalidnbr.textContent = "Entre un numéro entre 1 et 30";
         valid = false;
@@ -68,7 +58,6 @@ form.addEventListener("submit", (event) => {
         invalidnbr.textContent = "";
     }
 
-    // Vérifier le nom
     if (!regexnom.test(nom.value.trim())) {
         invalidnom.textContent = "Le nom est invalide";
         valid = false;
@@ -183,4 +172,9 @@ afficherJoueurs()
 actualiserCompteur();
 search(listj);
  catigorijoueur(listj)
+ let itemsPerPage = 6;
+let currentPage = 1;
+ afficherParPagination(listj,currentPage,itemsPerPage)
+
+
 

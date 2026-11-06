@@ -135,14 +135,23 @@
 
 
 }
-.formj{
+/* .formj{
     display: flex;
     justify-content: space-between;
+} */
+ .formj{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap:4px;
 }
-.invalidnbr{
+.invalidnumbr{
     color: red;
 }
 .invalidnom{
+color: red;
+}
+.invalidage{
 color: red;
 }
 .tiran.occupee {
@@ -201,8 +210,8 @@ color: red;
     .formj{
     display: grid;
     grid-template-columns: repeat(2 , 1fr);
-    grid-template-rows:repeat(2,1fr) ;
-    gap: 3PX;
+    
+    
 }
 }
 
@@ -284,11 +293,11 @@ color: red;
         padding: 10px;
         font-size: 13px;
     }
-
-}
-.formj{
+    .formj{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     gap:4px;
+    }
+
 }
